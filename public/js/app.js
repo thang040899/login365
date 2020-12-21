@@ -39,18 +39,17 @@ const logout = () => {
 /**
  * Retrieves the auth configuration from the server
  */
-const fetchAuthConfig = () => fetch("/auth_config.json");
+//const fetchAuthConfig = () => fetch("../auth_config.json");
 
 /**
  * Initializes the Auth0 client
  */
 const configureClient = async () => {
-  const response = await fetchAuthConfig();
-  const config = await response.json();
+  
 
   auth0 = await createAuth0Client({
-    domain: config.domain,
-    client_id: config.clientId
+    domain: "testfenseplugin.us.auth0.com",
+    client_id: "oRCLameV3mhuM35o58Z1bn9UOBe8fWCF"
   });
 };
 
@@ -76,7 +75,7 @@ window.onload = async () => {
   // If unable to parse the history hash, default to the root URL
   if (!showContentFromUrl(window.location.pathname)) {
     showContentFromUrl("/");
-    window.history.replaceState({ url: "/" }, {}, "/");
+    //window.history.replaceState({ url: "/" }, {}, "/");
   }
 
   const bodyElement = document.getElementsByTagName("body")[0];
